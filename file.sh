@@ -1,23 +1,14 @@
 #!/bin/bash
 
-echo "Enter first number:"
-read a
-echo "Enter second number:"
-read b
+a=25
+b=7
 
-echo "Choose operation:"
-echo "1. Addition"
-echo "2. Subtraction"
-echo "3. Multiplication"
-echo "4. Division"
-read choice
+add=$(echo "$a + $b" | bc)
+sub=$(echo "$a - $b" | bc)
+mul=$(echo "$a * $b" | bc)
+div=$(echo "scale=2; $a / $b" | bc)
 
-case $choice in
-  1) result=$(echo "$a + $b" | bc);;
-  2) result=$(echo "$a - $b" | bc);;
-  3) result=$(echo "$a * $b" | bc);;
-  4) result=$(echo "scale=2; $a / $b" | bc);;
-  *) echo "Invalid choice"; exit 1;;
-esac
-
-echo "Result: $result"
+echo "Addition: $add"
+echo "Subtraction: $sub"
+echo "Multiplication: $mul"
+echo "Division: $div"
